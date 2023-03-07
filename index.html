@@ -7,7 +7,7 @@
     <meta name="description" content="Web NFC 範例" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Web NFC 範例</title>
+    <title>WWeb NFC Example</title>
     <script>
       window.addEventListener("error", function (error) {
         if (ChromeSamples && ChromeSamples.setStatus) {
@@ -20,23 +20,20 @@
   </head>
 
   <body style="text-align: center;">
-    <h2 style="margin: 0;">Web NFC 範例</h2>
+    <h2 style="margin: 0;">Web NFC Example</h2>
     <p class="availability">
-      <h4 style="margin: 0;">裝置需支援 NFC、Chrome 89+ 以上版本</h4>
+      <h4 style="margin: 0;">The device needs to support NFC, Chrome 89+ or above</h4>
     </p>
 
-    <p style="width: 100vw; max-width: 300px; text-align: justify; margin: 0 auto">
-      NFC 代表近場通信，一種工作頻率為 13.56 MHz
-      的短距離無線技術，可實現距離小於 10 cm 的設備之間的通信，傳輸速率高達 424
-      kbit/s。當距離接近 5-10 公分時，Web NFC 就能夠讀取和寫入 NFC 標籤。
+    <p style="width: 100vw; max-width: 300px; text-align: justify; margin: 0 auto">NFC stands for Near Field Communication, a short-range wireless technology enables communication between devices within a distance of less than 10 cm, and the transmission rate is as high as 424 kbit/s. Web NFC is able to read and write NFC tags when the distance is close to 5-10 cm
       <br />
       <br />
-      目前僅限於 NFC 數據交換格式 (NDEF)，這是一種適用於不同標籤格式的輕量級二進制消息格式。
+      Currently limited to NFC Data Exchange Format (NDEF), a lightweight binary message format for different tag formats.
       <br />
       <br />
     </p>
 
-    <button id="scanButton" style="font-size: 1.5rem">掃描</button>
+    <button id="scanButton" style="font-size: 1.5rem">scanning</button>
     <script>
       var ChromeSamples = {
         log: function () {
@@ -70,7 +67,7 @@
       };
     </script>
 
-    <h3>即時掃描結果</h3>
+    <h3>Instant Scan Results</h3>
     <div id="output" style="width: 100vw; max-width: 300px; text-align: justify; margin: 0 auto">
       <div id="content"></div>
       <div id="status"></div>
@@ -82,7 +79,7 @@
         // Let's log a warning if the sample is not supposed to execute on this
         // version of Chrome.
         if (89 > parseInt(RegExp.$1)) {
-          ChromeSamples.setStatus("請使用 Chrome 89 + 以上版本");
+          ChromeSamples.setStatus("Please use Chrome 89++");
         }
       }
     </script>
@@ -91,20 +88,20 @@
       log = ChromeSamples.log;
 
       if (!("NDEFReader" in window))
-        ChromeSamples.setStatus("裝置不支援 Web NFC");
+        ChromeSamples.setStatus("Device does not support Web NFC");
     </script>
 
     <script>
       scanButton.addEventListener("click", async () => {
-        log("準備開始");
+        log("ready to start");
 
         try {
           const ndef = new NDEFReader();
           await ndef.scan();
-          log("> 開始掃描");
+          log("> start scanning");
 
           ndef.addEventListener("readingerror", () => {
-            log("無法讀取，請更換 NFC Tag");
+            log("Unable to read, please replace the NFC Tag");
           });
 
           ndef.addEventListener("reading", ({ message, serialNumber }) => {
@@ -118,7 +115,7 @@
             log(`> Records.recordType: (${message.records[0].recordType})`);
           });
         } catch (error) {
-          log("錯誤:" + error);
+          log("mistake:" + error);
         }
       });
     </script>

@@ -1,0 +1,23 @@
+{
+  "name": "mcj-webapis-ndefreader",
+  "version": "1.0.0",
+  "description": "Example of NDEFReader",
+  "main": "index.js",
+  "scripts": {
+    "test": "http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pingleware/mcj-webapis-ndefreader.git"
+  },
+  "keywords": [],
+  "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pingleware.work>",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/pingleware/mcj-webapis-ndefreader/issues"
+  },
+  "homepage": "https://github.com/pingleware/mcj-webapis-ndefreader#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
